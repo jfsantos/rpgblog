@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<title>Apêndice A - Gerador de Ideias de Aventuras</title>
+<style type="text/css">
+#mainContent {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12;
+	font-weight: bold;
+	background-color: #E3F0FB;
+	border-radius: 4px;
+	padding: 10px;
+	text-align: center;
+}
+
+#creditos {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14;
+	background-color: #EEEEEE;
+	border-radius: 4px;
+	padding: 10px;
+	text-align: center;
+}
+
+#mainContent h2 {
+	font-size: 14;
+}
+
+.buttonStyle {
+	border-radius: 4px;
+	border: thin solid #F0E020;
+	padding: 5px;
+	background-color: #F8F094;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: bold;
+	color: #663300;
+	width: 75px;
+}
+
+.buttonStyle:hover {
+	border: thin solid #FFCC00;
+	background-color: #FCF9D6;
+	color: #996633;
+	cursor: pointer;
+}
+.buttonStyle:active {
+	border: thin solid #99CC00;
+	background-color: #F5FFD2;
+	color: #669900;
+	cursor: pointer;
+}
+
+</style>
+
+<script type="text/javascript" src="tools.js"></script>
+<script type="text/javascript" src="tables.js"></script>
+
+</head>
+
+<body>
+<div id="mainContent">
+<h1>Apêndice A - Gerador de Ideias de Aventuras</h1>
+<h2>Objetivo</h2>
+<p id="objetivoText">?</p>
+<h2>Locação</h2>
+<p id="locacaoText">?</p>
+<h2>Antagonista</h2>
+<p id="antagonistaText">?</p>
+<h2>Coadjuvante</h2>
+<p id="coadjuvanteText">?</p>
+<h2>Complicação</h2>
+<p id="complicacaoText">?</p>
+<h2>Recompensa</h2>
+<p id="recompensaText">?</p>
+
+<button id="clickButton" class="buttonStyle">Gerar Ideia de Aventura</button>
+</div>
+
+<div id="creditos">
+<p>Estas tabelas são parte integrante do jogo Espadas Afiadas e Feitiços Sinistros, de
+<a href="http://www.pontosdeexperiencia.com.br">Diogo Nogueira</a>.
+Você pode adquirir o jogo e ajudar a financiar sua produção no Brasil através da campanha de financiamento
+coletivo da <a href="https://www.catarse.me/eaefs">editora Pensamento Coletivo no Catarse</a>.</p>
+</div>
+
+<script> 
+var myButton = document.getElementById("clickButton");
+var objetivoText = document.getElementById("objetivoText");
+var locacaoText = document.getElementById("locacaoText");
+var antagonistaText = document.getElementById("antagonistaText");
+var coadjuvanteText = document.getElementById("coadjuvanteText");
+var complicacaoText = document.getElementById("complicacaoText");
+var recompensaText = document.getElementById("recompensaText");
+
+myButton.addEventListener('click', rollTables, false)
+
+function rollTables() {
+	var roll1 = rolld6();
+	objetivoText.textContent = objetivos[roll1] + ': ' + objetivosEsp[roll1][rolld6()];
+	roll1 = rolld6();
+	locacaoText.textContent = locacoes[roll1] + ': ' + locacoesEsp[roll1][rolld6()];
+	roll1 = rolld6();
+	antagonistaText.textContent = antagonistas[roll1] + ': ' + antagonistasEsp[roll1][rolld6()];
+	roll1 = rolld6();
+	coadjuvanteText.textContent = coadjuvantes[roll1] + ': ' + coadjuvantesEsp[roll1][rolld6()];
+	roll1 = rolld6();
+	complicacaoText.textContent = complicacoes[roll1] + ': ' + complicacoesEsp[roll1][rolld6()];
+	roll1 = rolld6();
+	recompensaText.textContent = recompensas[roll1] + ': ' + recompensasEsp[roll1][rolld6()];
+}
+</script>
+
+</body>
+</html>
